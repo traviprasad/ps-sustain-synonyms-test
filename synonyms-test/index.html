@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="An English synonyms vocabulary test for students preparing for vocabulary and 11+ exams."
+  />
+  <title>English Synonyms Test</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">Vocabulary Practice</p>
+        <h1>English Synonyms Test</h1>
+        <p class="subtitle">
+          Test your vocabulary with 10 randomly selected questions.
+        </p>
+      </div>
+
+      <div class="header-badge" aria-label="Questions per test">
+        <strong>10</strong>
+        <span>Questions</span>
+      </div>
+    </header>
+
+    <section id="setupPanel" class="panel">
+      <h2>Start a test</h2>
+      <p>
+        Questions are loaded from <code>questions.csv</code>. You can also
+        choose another compatible CSV file.
+      </p>
+
+      <div class="setup-actions">
+        <button id="startButton" class="button button-primary" type="button">
+          Start New Test
+        </button>
+
+        <label class="file-picker">
+          <span>Load another CSV</span>
+          <input id="csvInput" type="file" accept=".csv,text/csv" />
+        </label>
+      </div>
+
+      <p id="statusMessage" class="status-message" role="status">
+        Loading questions...
+      </p>
+
+      <div class="csv-help">
+        Required columns:
+        <strong>Question Word</strong>,
+        <strong>Options</strong>,
+        <strong>Correct Answer</strong>,
+        <strong>Meaning</strong>,
+        <strong>Explanation</strong>,
+        <strong>Synonyms</strong>,
+        <strong>Example Sentence</strong>
+      </div>
+    </section>
+
+    <section id="quizPanel" class="panel hidden" aria-labelledby="quizTitle">
+      <div class="progress-row">
+        <div>
+          <p class="eyebrow">Current Test</p>
+          <h2 id="quizTitle">Choose the best synonym</h2>
+        </div>
+
+        <span id="progressText" class="progress-text">Question 1 of 10</span>
+      </div>
+
+      <form id="quizForm">
+        <div id="questionsContainer"></div>
+
+        <div class="form-actions">
+          <button id="submitButton" class="button button-primary" type="submit">
+            Submit Test
+          </button>
+
+          <button id="resetButton" class="button button-secondary" type="button">
+            Cancel Test
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <section id="resultsPanel" class="panel hidden" aria-labelledby="resultsTitle">
+      <div class="results-header">
+        <div>
+          <p class="eyebrow">Test Complete</p>
+          <h2 id="resultsTitle">Your Results</h2>
+        </div>
+
+        <div id="scoreSummary" class="score-summary"></div>
+      </div>
+
+      <div class="results-actions">
+        <button id="tryAgainButton" class="button button-primary" type="button">
+          Try Another Test
+        </button>
+
+        <button id="backToStartButton" class="button button-secondary" type="button">
+          Back to Start
+        </button>
+      </div>
+
+      <div>
+        <h3>Detailed Review</h3>
+        <div id="reviewContainer" class="review-container"></div>
+      </div>
+    </section>
+
+    <footer class="app-footer">
+      Suitable for vocabulary practice and 11+ exam preparation.
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
